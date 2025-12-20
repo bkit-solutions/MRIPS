@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Excel → JSON Converter (Admin)</title>
+
+  <!-- SheetJS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <style>
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(135deg, #141e30, #243b55);
+      color: #fff;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .card {
+      background: #ffffff;
+      color: #333;
+      max-width: 600px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+    }
+
+    input, button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #2a5298;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background: #1e3c72;
+    }
+
+    pre {
+      text-align: left;
+      background: #f4f6f8;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      max-height: 300px;
+      overflow: auto;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🛠 Excel → JSON Converter</h1>
+  <p>Admin Tool – Convert weekly scores to dashboard format</p>
+
+  <div class="card">
+    <input type="file" id="excelFile" accept=".xlsx" />
+
+    <input type="text" id="week" placeholder="Week / Test Name (eg: Week 3 – Python Assessment)" />
+    <input type="text" id="message" placeholder="Banner Message (eg: 🎉 Congratulations Top Performers!)" />
+
+    <button onclick="convertExcel()">Convert & Download JSON</button>
+
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    function convertExcel() {
+      const file = document.getElementById("excelFile").files[0];
+      const week = document.getElementById("week").value || "Weekly Assessment";
+      const message = document.getElementById("message").value || "🎉 Congratulations to our Top Performers!";
+
+      if (!file) {
+        alert("Please upload an Excel file");
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: "array" });
+
+        const sheet = workbook.Sheets[workbook.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(sheet);
+
+        // Convert to required format
+        const students = rows
+          .filter(r => r["STUDENT NAME"] && r["SCORE"] !== undefined)
+          .map(r => ({
+            name: String(r["STUDENT NAME"]).toUpperCase(),
+            score: Number(r["SCORE"])
+          }))
+          .sort((a, b) => b.score - a.score);
+
+        const finalJSON = {
+          week: week,
+          message: message,
+          students: students
+        };
+
+        // Show preview
+        document.getElementById("output").textContent =
+          JSON.stringify(finalJSON, null, 2);
+
+        // Auto download
+        const blob = new Blob(
+          [JSON.stringify(finalJSON, null, 2)],
+          { type: "application/json" }
+        );
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "data.json";
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      reader.readAsArrayBuffer(file);
+    }
+  </script>
+
+</body>
+</html>
