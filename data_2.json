@@ -1,0 +1,354 @@
+{
+  "week": "Week 2 Python Fundamentals",
+  "message": "Congratulations to our Top Performers!",
+  "students": [
+    {
+      "name": "ARLA ARCHANA ",
+      "score": 12
+    },
+    {
+      "name": "GAYATRI SAHOO ",
+      "score": 12
+    },
+    {
+      "name": "SNEHA ",
+      "score": 12
+    },
+    {
+      "name": "M.SAIPRIYA REDDY",
+      "score": 12
+    },
+    {
+      "name": "REDDY PRAVEENA ",
+      "score": 12
+    },
+    {
+      "name": "MEDISHETTY PADMASREE ",
+      "score": 12
+    },
+    {
+      "name": "MADDELA SINDHU BHAVANA ",
+      "score": 12
+    },
+    {
+      "name": "IKSHA SINGH ",
+      "score": 12
+    },
+    {
+      "name": "AFIFA ZAHEER",
+      "score": 12
+    },
+    {
+      "name": "NIDA AQSA ",
+      "score": 12
+    },
+    {
+      "name": "S. MANISHA",
+      "score": 12
+    },
+    {
+      "name": "YASHWITHA ",
+      "score": 12
+    },
+    {
+      "name": "BOJJA UMESH CHANDRA ",
+      "score": 12
+    },
+    {
+      "name": "BHAVYASRI",
+      "score": 12
+    },
+    {
+      "name": "SHIVA T ",
+      "score": 12
+    },
+    {
+      "name": "HANSIKA ",
+      "score": 12
+    },
+    {
+      "name": "B. DIVYASREE",
+      "score": 12
+    },
+    {
+      "name": "M.VISHNU VARDHAN",
+      "score": 12
+    },
+    {
+      "name": "SANTOSH ",
+      "score": 12
+    },
+    {
+      "name": "VISHNU",
+      "score": 12
+    },
+    {
+      "name": "K.SAHITH",
+      "score": 12
+    },
+    {
+      "name": "M.HASAN",
+      "score": 12
+    },
+    {
+      "name": "G. ANUSHA",
+      "score": 12
+    },
+    {
+      "name": "VAMSHI KRISHANA ",
+      "score": 12
+    },
+    {
+      "name": "T.LAVANYA",
+      "score": 12
+    },
+    {
+      "name": "SHIREEN BEGUM",
+      "score": 12
+    },
+    {
+      "name": "DASARI  CHANDHU ",
+      "score": 12
+    },
+    {
+      "name": "AKHIL",
+      "score": 12
+    },
+    {
+      "name": "D VIGNESH ",
+      "score": 12
+    },
+    {
+      "name": "M.SANJANA",
+      "score": 12
+    },
+    {
+      "name": "KAVYA",
+      "score": 12
+    },
+    {
+      "name": "MEHARUNNISA ",
+      "score": 12
+    },
+    {
+      "name": "K.SHAMDHIGDHA ",
+      "score": 12
+    },
+    {
+      "name": "B.AKSHAYA",
+      "score": 12
+    },
+    {
+      "name": "C VIJAY ",
+      "score": 12
+    },
+    {
+      "name": "T.VARSHITHA",
+      "score": 11
+    },
+    {
+      "name": "VENNELA ",
+      "score": 11
+    },
+    {
+      "name": "CHANDANA",
+      "score": 11
+    },
+    {
+      "name": "P VENKATA DHANUSH REDDY ",
+      "score": 11
+    },
+    {
+      "name": "S UPENDRA",
+      "score": 11
+    },
+    {
+      "name": "MYTHREE",
+      "score": 11
+    },
+    {
+      "name": "PATLOLLA GOURI REDDY",
+      "score": 11
+    },
+    {
+      "name": "NEHA BEGUM",
+      "score": 11
+    },
+    {
+      "name": "UDAY SINGH",
+      "score": 11
+    },
+    {
+      "name": "SAYED IMAM ",
+      "score": 11
+    },
+    {
+      "name": "P.LAKSHMAN",
+      "score": 11
+    },
+    {
+      "name": "K. THANUSREE",
+      "score": 11
+    },
+    {
+      "name": "N.MEGHANAREDDY",
+      "score": 11
+    },
+    {
+      "name": "AAMENA FATHIMA ",
+      "score": 11
+    },
+    {
+      "name": "N.MANIKANTH",
+      "score": 11
+    },
+    {
+      "name": "S.SRI HYMA ",
+      "score": 11
+    },
+    {
+      "name": "MOULIKA",
+      "score": 11
+    },
+    {
+      "name": "G SRI CHARAN ",
+      "score": 11
+    },
+    {
+      "name": "DINESH ",
+      "score": 11
+    },
+    {
+      "name": "SAHITHI ",
+      "score": 11
+    },
+    {
+      "name": "SHAIK MASEEHA",
+      "score": 11
+    },
+    {
+      "name": "YADANDLA LAKITHA ",
+      "score": 11
+    },
+    {
+      "name": "SHASHI KANTH REDDY",
+      "score": 10
+    },
+    {
+      "name": "SHARANYA",
+      "score": 10
+    },
+    {
+      "name": "ARJUN",
+      "score": 10
+    },
+    {
+      "name": "VARTHIKA",
+      "score": 10
+    },
+    {
+      "name": "TABISH RAZA",
+      "score": 10
+    },
+    {
+      "name": "HUMERA",
+      "score": 10
+    },
+    {
+      "name": "RAJESH KARUPOTHULA ",
+      "score": 10
+    },
+    {
+      "name": "R ADITHYA ",
+      "score": 10
+    },
+    {
+      "name": "BHARATH ",
+      "score": 10
+    },
+    {
+      "name": "PHANINDRA",
+      "score": 10
+    },
+    {
+      "name": "DEV SRI.M",
+      "score": 10
+    },
+    {
+      "name": "KARTHIKEYA",
+      "score": 10
+    },
+    {
+      "name": "BHAVANI ",
+      "score": 10
+    },
+    {
+      "name": "GOUTHAMI ",
+      "score": 10
+    },
+    {
+      "name": "P. PAVAN ADHITHYA",
+      "score": 10
+    },
+    {
+      "name": "SHRESTH RAHAMATKAR",
+      "score": 10
+    },
+    {
+      "name": "K VARUNPOOJITH ",
+      "score": 10
+    },
+    {
+      "name": "MUQEET ",
+      "score": 9
+    },
+    {
+      "name": "J SIRI PRIYA",
+      "score": 9
+    },
+    {
+      "name": "SANSITA TELLA ",
+      "score": 9
+    },
+    {
+      "name": "PRADAKSHINA GHOSH ",
+      "score": 9
+    },
+    {
+      "name": "AKSHITHA GONUGUNTA",
+      "score": 8
+    },
+    {
+      "name": "G AKHILA",
+      "score": 8
+    },
+    {
+      "name": "ARTHI",
+      "score": 8
+    },
+    {
+      "name": "MOHID",
+      "score": 8
+    },
+    {
+      "name": "SOUMYA",
+      "score": 7
+    },
+    {
+      "name": "SHALINI",
+      "score": 7
+    },
+    {
+      "name": "Y. GAMYASRI ",
+      "score": 6
+    },
+    {
+      "name": " T.NAVYASRI ",
+      "score": 5
+    },
+    {
+      "name": "U.MITHRA",
+      "score": 5
+    }
+  ]
+}

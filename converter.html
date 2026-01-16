@@ -84,61 +84,65 @@
   </div>
 
   <script>
-    function convertExcel() {
-      const file = document.getElementById("excelFile").files[0];
-      const week = document.getElementById("week").value || "Weekly Assessment";
-      const message = document.getElementById("message").value || "🎉 Congratulations to our Top Performers!";
+function convertExcel() {
+  const file = document.getElementById("excelFile").files[0];
+  const week = document.getElementById("week").value || "Weekly Assessment";
+  const message = document.getElementById("message").value || "🎉 Congratulations to our Top Performers!";
 
-      if (!file) {
-        alert("Please upload an Excel file");
-        return;
-      }
+  if (!file) {
+    alert("Please upload an Excel file");
+    return;
+  }
 
-      const reader = new FileReader();
+  const reader = new FileReader();
 
-      reader.onload = function (e) {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, { type: "array" });
+  reader.onload = function (e) {
+    const data = new Uint8Array(e.target.result);
+    const workbook = XLSX.read(data, { type: "array" });
 
-        const sheet = workbook.Sheets[workbook.SheetNames[0]];
-        const rows = XLSX.utils.sheet_to_json(sheet);
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const rows = XLSX.utils.sheet_to_json(sheet);
 
-        // Convert to required format
-        const students = rows
-          .filter(r => r["STUDENT NAME"] && r["SCORE"] !== undefined)
-          .map(r => ({
-            name: String(r["STUDENT NAME"]).toUpperCase(),
-            score: Number(r["SCORE"])
-          }))
-          .sort((a, b) => b.score - a.score);
+    const students = rows
+      .filter(r => r && Object.keys(r).length > 0)
+      .map(r => ({
+        name: String(
+          r["STUDENT NAME"] || r["Student Name"] || ""
+        ).toUpperCase(),
+        score: Number(
+          String(r["SCORE"] || r["Score"] || r["MARKS"] || "")
+            .replace(/[^0-9.]/g, "")
+        )
+      }))
+      .filter(s => s.name && !isNaN(s.score))
+      .sort((a, b) => b.score - a.score);
 
-        const finalJSON = {
-          week: week,
-          message: message,
-          students: students
-        };
+    const finalJSON = {
+      week,
+      message,
+      students
+    };
 
-        // Show preview
-        document.getElementById("output").textContent =
-          JSON.stringify(finalJSON, null, 2);
+    document.getElementById("output").textContent =
+      JSON.stringify(finalJSON, null, 2);
 
-        // Auto download
-        const blob = new Blob(
-          [JSON.stringify(finalJSON, null, 2)],
-          { type: "application/json" }
-        );
+    const blob = new Blob(
+      [JSON.stringify(finalJSON, null, 2)],
+      { type: "application/json" }
+    );
 
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "data.json";
-        a.click();
-        URL.revokeObjectURL(url);
-      };
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "data.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
-      reader.readAsArrayBuffer(file);
-    }
-  </script>
+  reader.readAsArrayBuffer(file);
+}
+</script>
+
 
 </body>
 </html>
