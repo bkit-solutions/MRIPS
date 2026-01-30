@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MRIPS | Unit-wise Progress Dashboard</title>
+
+  <link rel="shortcut icon" href="./fav.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      /* SaaS / College theme */
+      --bg: #f6f9ff;
+      --panel: #ffffff;
+      --border: #e6edf7;
+      --text: #0f1b2d;
+      --muted: #5f6b7a;
+
+      --primary: #1d4ed8;     /* blue */
+      --primary-2: #2563eb;
+      --soft: #eef5ff;
+
+      --success: #16a34a;
+      --warning: #d97706;
+
+      --shadow: 0 10px 30px rgba(15, 27, 45, 0.08);
+      --radius: 16px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Top header (college website style) */
+    .topbar{
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar-inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+    }
+
+    .logo{
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 6px;
+    }
+
+    .brand-title{
+      display:flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .brand-title b{
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+    .brand-title span{
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .actions{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .btn{
+      cursor:pointer;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--panel);
+      padding: 9px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      transition: 0.2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 10px 20px rgba(15,27,45,0.08); }
+    .btn.primary{
+      border-color: rgba(29,78,216,0.25);
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Layout */
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 16px 48px;
+    }
+
+    /* ================= HERO ================= */
+    .hero{
+      margin-top: 14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-left{
+      flex: 1 1 560px;
+      min-width: 280px;
+    }
+
+    .hero-left h1{
+      font-size: clamp(20px, 2.4vw, 30px);
+      line-height: 1.2;
+      letter-spacing: -0.3px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .hero-left p{
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 820px;
+      line-height: 1.7;
+    }
+
+    .pill-row{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .pill{
+      background: var(--soft);
+      border: 1px solid rgba(29,78,216,0.12);
+      color: rgba(15,27,45,0.92);
+      padding: 8px 10px;
+      font-size: 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    /* NEW hero highlight pill */
+    .pill.hackathon{
+      background: rgba(29,78,216,0.08);
+      border: 1px solid rgba(29,78,216,0.18);
+      color: var(--primary);
+      font-weight: 900;
+      position: relative;
+      overflow: hidden;
+    }
+    .pill.hackathon::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+      transform: translateX(-100%);
+      animation: shine 2.4s ease infinite;
+      opacity: 0.7;
+    }
+    @keyframes shine{
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Cards */
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      align-items:start;
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-head{
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      display:flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+    .card-head h2{
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+    .card-head span{
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .card-body{
+      padding: 16px;
+    }
+
+    /* Summary metrics */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stat{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat small{
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 11px;
+      display:block;
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+    }
+    .stat b{
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .stat .hint{
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* NEW hackathon progress bar inside stat */
+    .mini-bar{
+      margin-top: 10px;
+      height: 8px;
+      border-radius: 999px;
+      background: #eef2ff;
+      border: 1px solid #e7ecff;
+      overflow:hidden;
+    }
+    .mini-fill{
+      width: 0%;
+      height: 100%;
+      background: var(--primary);
+      border-radius: 999px;
+      transition: width 1400ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    /* Unit list */
+    .units{
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .unit{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      background: #ffffff;
+      transition: 0.2s ease;
+    }
+    .unit:hover{
+      box-shadow: 0 12px 30px rgba(15,27,45,0.08);
+      transform: translateY(-1px);
+    }
+
+    .unit-top{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      justify-content: space-between;
+    }
+
+    /* ✅ fix long title spacing issues */
+    .unit-head{
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* title + percent should NEVER break layout */
+    .unit-title-row{
+      display:flex;
+      align-items:flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .unit-title{
+      font-weight: 900;
+      font-size: 14px;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    /* badge always consistent */
+    .unit-badge-row{
+      margin-top: 6px;
+      margin-bottom: 6px;
+    }
+
+    .unit-desc{
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    /* right-side percent marker */
+    .percent{
+      min-width: 88px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--soft);
+      border: 1px solid rgba(29,78,216,0.16);
+      color: var(--primary);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* progress bar */
+    .bar{
+      margin-top: 12px;
+      height: 10px;
+      border-radius: 999px;
+      background: #eef2ff;
+      overflow:hidden;
+      border: 1px solid #e7ecff;
+    }
+    .fill{
+      width: 0%;
+      height: 100%;
+      border-radius: 999px;
+      background: var(--primary);
+      transition: width 1400ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    /* tags */
+    .tag{
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      font-weight: 900;
+      color: rgba(15,27,45,0.9);
+      font-size: 11px;
+      width: fit-content;
+    }
+    .tag.good{ border-color: rgba(22,163,74,0.25); background: rgba(22,163,74,0.08); color: var(--success); }
+    .tag.warn{ border-color: rgba(217,119,6,0.25); background: rgba(217,119,6,0.08); color: var(--warning); }
+
+    /* Side panels */
+    .list{
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .item{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+    }
+    .item h3{
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+    .item ul{
+      margin-left: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .divider{
+      height: 1px;
+      background: var(--border);
+      margin: 12px 0;
+    }
+
+    .foot{
+      text-align:center;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px){
+      .grid{ grid-template-columns: 1fr; }
+      .stats{ grid-template-columns: 1fr; }
+      .actions{ display:none; }
+    }
+
+    /* Print view (for management reports) */
+    @media print{
+      .topbar{ position: static; }
+      .btn{ display:none; }
+      body{ background: #fff; }
+      .card{ box-shadow:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo"><img src="./Mrips-Logo.png" alt=""></div>
+
+        <div class="brand-title">
+          <b>MRIPS – Training Dashboard</b>
+          <span>Unit-wise progress update (Python & AI/ML)</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" onclick="window.print()">Print / Save PDF</button>
+        <button class="btn primary" id="updatedBtn">Updated: --</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <!-- ✅ HERO UPDATED -->
+    <div class="hero">
+      <div class="hero-left">
+        <h1>AI & Python Programming for Pharmacy – I</h1>
+        <p>
+          Unit-wise training progress dashboard with practical enrichment modules including
+          RASA chatbot development, MySQL CRUD operations, lab exercises and hackathon readiness planning.
+        </p>
+
+        <div class="pill-row">
+          <div class="pill">📌 Units Covered: <b>5</b></div>
+          <div class="pill hackathon">Hackathon Event: <b>20–21 Feb</b></div>
+          <div class="pill">🧠 Project Showcase + Demo + Presentation</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main grid -->
+    <div class="grid">
+      <!-- Left main -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Unit-wise Completion</h2>
+          <span>Source: Course contents (Unit 1–5)</span>
+        </div>
+
+        <div class="card-body">
+
+          <!-- ✅ STATS UPDATED (Hackathon highlight + animations) -->
+          <div class="stats" id="hackathonBlock">
+
+            <div class="stat">
+              <small>Hackathon Date</small>
+              <b>20–21 Feb</b>
+              <div class="hint">Students will showcase projects built using AI & Python.</div>
+            </div>
+
+            <div class="stat">
+              <small>Hackathon Sprint Plan</small>
+              <b>9 Days Left</b>
+              <div class="hint">2.5 hrs/day + project mentoring.</div>
+            </div>
+
+            <div class="stat">
+              <small>Preparation Progress</small>
+              <b><span id="hackStatPct">0</span>%</b>
+              <div class="mini-bar">
+                <div class="mini-fill" id="hackStatFill"></div>
+              </div>
+              <div class="hint">Theory + Lab + Project readiness.</div>
+            </div>
+
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="units" id="units"></div>
+        </div>
+      </div>
+
+      <!-- Right side -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Practical Enrichment + Hackathon</h2>
+          <span>Implementation focus</span>
+        </div>
+
+        <div class="card-body">
+          <div class="list">
+            <div class="item">
+              <h3>Additional Lab Modules</h3>
+              <ul>
+                <li>Computer applications & lab-based practice</li>
+                <li>RASA chatbot model building + testing</li>
+                <li>MySQL installation, database basics</li>
+                <li>SQL queries + CRUD operations</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <h3>Hackathon Readiness (Next 9 Days)</h3>
+              <ul>
+                <li>Total planned: <b>23 hrs</b> (2.5 hrs/day)</li>
+                <li>Theory completion: <b>5 – 6 hrs</b></li>
+                <li>Remaining: project building + demo + presentation</li>
+              </ul>
+            </div>
+
+            <div class="item">
+              <h3>Trainer Note</h3>
+              <ul>
+                <li>Progress includes extended activities beyond the paper syllabus</li>
+                <li>Unit completion is tracked separately from training time</li>
+                <li>Students are being prepared for project showcase</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="foot">© 2025 BKIT Solutions. All rights reserved</div>
+  </div>
+
+  <script>
+    // === Settings ===
+    const TOTAL_COMPLETED_HOURS = 40;
+    const UNITS = 5;
+    const HOURS_PER_UNIT = TOTAL_COMPLETED_HOURS / UNITS;
+
+    // Hackathon progress (change anytime)
+    const HACKATHON_PROGRESS = 90;
+
+    // % completion you provided
+    const unitProgress = [
+      { name: "Unit 1 – Foundations of Artificial Intelligence", percent: 100 },
+      { name: "Unit 2 – Machine-Learning Essentials", percent: 15 },
+      { name: "Unit 3 – AI/ML in Pharmaceutical Sciences", percent: 20 },
+      { name: "Unit 4 – Python Setup and Language Basics", percent: 100 },
+      { name: "Unit 5 – Python Programming Constructs & Data Handling", percent: 85 },
+    ];
+
+    const unitDesc = [
+      "History of AI, approaches, problem-solving paradigms, knowledge representation, uncertainty reasoning, decisions.",
+      "Learning paradigms (supervised/unsupervised/RL) and algorithms: Naïve Bayes, KNN, regression, clustering, basic neural nets.",
+      "Industrial applications + research avenues in pharma: drug discovery, QSAR/QSPR, trials, personalised medicine, regulatory.",
+      "Python why/installation, IDEs, first script, syntax rules, variables, types, type casting.",
+      "Operators, conditions, loops, collections, functions, file handling, exception handling."
+    ];
+
+    // === Render Units ===
+    const unitsEl = document.getElementById("units");
+
+    unitProgress.forEach((u, i) => {
+      const tagClass =
+        u.percent === 100 ? "good" : (u.percent >= 60 ? "warn" : "");
+
+      const tagText =
+        u.percent === 100 ? "COMPLETED" : (u.percent >= 60 ? "IN PROGRESS" : "STARTED");
+
+      const div = document.createElement("div");
+      div.className = "unit";
+
+      div.innerHTML = `
+        <div class="unit-top">
+          <div class="unit-head">
+
+            <div class="unit-title-row">
+              <div class="unit-title">${u.name}</div>
+              <div class="percent" data-target="${u.percent}">0%</div>
+            </div>
+
+            <div class="unit-badge-row">
+              <span class="tag ${tagClass}">${tagText}</span>
+            </div>
+
+            <div class="unit-desc">${unitDesc[i]}</div>
+          </div>
+        </div>
+
+        <div class="bar">
+          <div class="fill" data-fill="${u.percent}"></div>
+        </div>
+      `;
+
+      unitsEl.appendChild(div);
+    });
+
+    // Updated date badge
+    const now = new Date();
+    const stamp = now.toLocaleString(undefined, { year:"numeric", month:"short", day:"2-digit", hour:"2-digit", minute:"2-digit" });
+    const updatedBtn = document.getElementById("updatedBtn");
+    updatedBtn.textContent = "Updated: " + stamp;
+
+    // Animations
+    function animate(){
+      // Unit bars
+      document.querySelectorAll(".fill").forEach((fill, idx) => {
+        const target = fill.getAttribute("data-fill");
+        setTimeout(() => fill.style.width = target + "%", 120 + idx * 90);
+      });
+
+      // Unit percent count-up
+      document.querySelectorAll(".percent").forEach((box, idx) => {
+        const target = parseInt(box.getAttribute("data-target"), 10);
+        let val = 0;
+        const step = Math.max(1, Math.floor(target / 38));
+        setTimeout(() => {
+          const timer = setInterval(() => {
+            val += step;
+            if(val >= target){ val = target; clearInterval(timer); }
+            box.textContent = val + "%";
+          }, 14);
+        }, 120 + idx * 90);
+      });
+
+      // Hackathon stat animation
+      const fill = document.getElementById("hackStatFill");
+      const pct = document.getElementById("hackStatPct");
+
+      setTimeout(() => {
+        fill.style.width = HACKATHON_PROGRESS + "%";
+      }, 250);
+
+      let current = 0;
+      const stepH = Math.max(1, Math.floor(HACKATHON_PROGRESS / 40));
+      const timerH = setInterval(() => {
+        current += stepH;
+        if(current >= HACKATHON_PROGRESS){
+          current = HACKATHON_PROGRESS;
+          clearInterval(timerH);
+        }
+        pct.textContent = current;
+      }, 14);
+    }
+
+    window.addEventListener("load", animate);
+  </script>
+</body>
+</html>
