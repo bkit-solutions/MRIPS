@@ -1,125 +1,9 @@
 {
-  "week": "Python , Rasa & MYSQL – Quiz",
+  "week": "Python (while & for loops, Set, Dict)",
   "message": "Outstanding Performance! Congratulations to Our Top Achievers — Keep Striving for Excellence!",
   "students": [
     {
-      "name": "HANSIKA ",
-      "score": 16
-    },
-    {
-      "name": "VARSHITHA",
-      "score": 16
-    },
-    {
-      "name": "IKSHA SINGH ",
-      "score": 16
-    },
-    {
-      "name": "ARLA ARCHANA",
-      "score": 16
-    },
-    {
-      "name": "SNEHITHA ",
-      "score": 16
-    },
-    {
-      "name": "ARLA ARCHANA",
-      "score": 16
-    },
-    {
-      "name": "ARLA ARCHANA ",
-      "score": 16
-    },
-    {
-      "name": "B.AKSHAYA",
-      "score": 16
-    },
-    {
-      "name": "DEV SRI",
-      "score": 16
-    },
-    {
-      "name": "NEHA  BEGUM",
-      "score": 16
-    },
-    {
-      "name": "SHAMDHIGDHA ",
-      "score": 16
-    },
-    {
-      "name": "MEGHANA",
-      "score": 16
-    },
-    {
-      "name": "S UPENDRA",
-      "score": 16
-    },
-    {
-      "name": "H. SINDHU",
-      "score": 16
-    },
-    {
-      "name": "NIDA AQSA",
-      "score": 16
-    },
-    {
-      "name": "BHARATH ",
-      "score": 16
-    },
-    {
       "name": "BHAVYASRI",
-      "score": 16
-    },
-    {
-      "name": "SOUMYA",
-      "score": 16
-    },
-    {
-      "name": "VENKATA DHANUSH REDDY ",
-      "score": 16
-    },
-    {
-      "name": "REDDY PRAVEENA ",
-      "score": 15
-    },
-    {
-      "name": "MADDELA SINDHU BHAVANA ",
-      "score": 15
-    },
-    {
-      "name": "YASHWITHA ",
-      "score": 15
-    },
-    {
-      "name": "K VARUNPOOJITH",
-      "score": 15
-    },
-    {
-      "name": "SHALINI",
-      "score": 15
-    },
-    {
-      "name": "SHRESTH RAHAMATKAR",
-      "score": 15
-    },
-    {
-      "name": "DIVYASREE",
-      "score": 15
-    },
-    {
-      "name": "SAHANA REDDY",
-      "score": 15
-    },
-    {
-      "name": "ANUSHA",
-      "score": 15
-    },
-    {
-      "name": "AFIFA ZAHEER",
-      "score": 15
-    },
-    {
-      "name": "ARJUN",
       "score": 15
     },
     {
@@ -127,11 +11,111 @@
       "score": 15
     },
     {
+      "name": "BIBI HAJRA",
+      "score": 15
+    },
+    {
+      "name": "MEHARUNNISA ",
+      "score": 15
+    },
+    {
+      "name": "M.VISHNU VARDHAN",
+      "score": 15
+    },
+    {
       "name": "SAI SRINI",
+      "score": 15
+    },
+    {
+      "name": "IKSHA SINGH ",
+      "score": 15
+    },
+    {
+      "name": "DHANUSH REDDY ",
+      "score": 15
+    },
+    {
+      "name": "SAHITH",
+      "score": 15
+    },
+    {
+      "name": "HANSIKA ",
+      "score": 15
+    },
+    {
+      "name": "VARSHITHA ",
+      "score": 15
+    },
+    {
+      "name": "S. MANISHA",
+      "score": 15
+    },
+    {
+      "name": "SNEHA",
+      "score": 15
+    },
+    {
+      "name": "ARLA ARCHANA ",
+      "score": 15
+    },
+    {
+      "name": "G AKHILA",
+      "score": 15
+    },
+    {
+      "name": "MANTHENA SANJANA",
+      "score": 15
+    },
+    {
+      "name": "Y GAMYASRI ",
+      "score": 15
+    },
+    {
+      "name": "VENNELA ",
+      "score": 15
+    },
+    {
+      "name": "T LAVANYA ",
+      "score": 15
+    },
+    {
+      "name": "GOURI REDDY ",
+      "score": 15
+    },
+    {
+      "name": "MYTHREE",
+      "score": 15
+    },
+    {
+      "name": "SANTOSH ",
+      "score": 15
+    },
+    {
+      "name": "B.AKSHAYA",
+      "score": 15
+    },
+    {
+      "name": "SAHITHI ",
+      "score": 15
+    },
+    {
+      "name": "AFIFA ZAHEER ",
+      "score": 15
+    },
+    {
+      "name": "AKSHITHA GONUGUNTA",
+      "score": 15
+    },
+    {
+      "name": "REDDY PRAVEENA ",
       "score": 14
     },
     {
-      "name": "SHRUTHI ",
+      "name": "NIDA AQSA ",
+      "score": 14
+    },
+    {
+      "name": "SAHITHI ",
       "score": 14
     },
     {
@@ -139,83 +123,67 @@
       "score": 14
     },
     {
-      "name": "SHRESHTA VEGGALAM ",
+      "name": "SHRUTHI",
       "score": 14
     },
     {
-      "name": "MEDISHETTY PADMASREE ",
+      "name": "M DEV SRI",
       "score": 14
     },
     {
-      "name": "K.SHARANYA GOUD",
+      "name": "T NAVYASRI ",
       "score": 14
     },
     {
-      "name": "J SIRI PRIYA ",
+      "name": "SHRESTH RAHAMARKAR",
       "score": 14
     },
     {
-      "name": "SAYED IMAM",
+      "name": "DIVAYSREE",
       "score": 14
     },
     {
-      "name": "AKSHITHA GONUGUNTA",
+      "name": "M.SAIPRIYA",
       "score": 14
     },
     {
-      "name": "VARTHIKA",
+      "name": "H. SINDHU",
       "score": 14
     },
     {
-      "name": "NIDA",
+      "name": "T MEGHANA",
       "score": 14
     },
     {
-      "name": "KARTHIKEYA ",
+      "name": "S UPENDRA",
       "score": 14
     },
     {
-      "name": "P MYTHREE",
+      "name": "SHAMDHIGDHA ",
       "score": 14
-    },
-    {
-      "name": "MANTHENA SANJANA",
-      "score": 14
-    },
-    {
-      "name": "MADDURI KAVYA ",
-      "score": 14
-    },
-    {
-      "name": "GODA DILEEP KUMAR",
-      "score": 14
-    },
-    {
-      "name": "GOURI ",
-      "score": 14
-    },
-    {
-      "name": "MEHARUNNISA",
-      "score": 14
-    },
-    {
-      "name": "HARSHA",
-      "score": 14
-    },
-    {
-      "name": "K.SAHITH ",
-      "score": 14
-    },
-    {
-      "name": "SRIRAM MANISHA",
-      "score": 13
-    },
-    {
-      "name": "M.VISHNU VARDHAN",
-      "score": 13
     },
     {
       "name": "BOJJA UMESH CHANDRA ",
+      "score": 14
+    },
+    {
+      "name": "NEHA BEGUM",
+      "score": 14
+    },
+    {
+      "name": "SHASHI",
+      "score": 14
+    },
+    {
+      "name": "KUSUMA",
+      "score": 14
+    },
+    {
+      "name": "BHARATH",
+      "score": 13
+    },
+    {
+      "name": "HITHASREE ",
       "score": 13
     },
     {
@@ -223,152 +191,48 @@
       "score": 13
     },
     {
-      "name": "VENNELA ",
+      "name": "NENAVATH SHIVANI",
       "score": 13
     },
     {
-      "name": "GAYATRI SAHOO ",
-      "score": 12
-    },
-    {
-      "name": "AKHILA ",
-      "score": 12
-    },
-    {
-      "name": "AKHILA ",
-      "score": 12
-    },
-    {
-      "name": "AHMED",
-      "score": 12
-    },
-    {
-      "name": "SAMUEL",
-      "score": 12
-    },
-    {
-      "name": "DINESH ",
-      "score": 12
-    },
-    {
-      "name": "SHASHI",
-      "score": 12
-    },
-    {
-      "name": "G SRI CHARAN ",
-      "score": 11
-    },
-    {
-      "name": "G VISHAL ",
-      "score": 11
-    },
-    {
-      "name": "SANSITA TELLA ",
-      "score": 11
-    },
-    {
-      "name": "GUNAVARDHAN ",
-      "score": 11
+      "name": "ARJUN ",
+      "score": 13
     },
     {
       "name": "K. THANUSREE",
+      "score": 13
+    },
+    {
+      "name": "MADDURI KAVYA ",
+      "score": 12
+    },
+    {
+      "name": "ANUSHA",
+      "score": 12
+    },
+    {
+      "name": "GAYATRI SAHOO ",
       "score": 11
     },
     {
-      "name": "VENNELA ",
+      "name": "RAJESH KARUPOTHULA",
       "score": 11
     },
     {
-      "name": "SAHITHI ",
+      "name": "BODAS YESHWITHA ",
+      "score": 11
+    },
+    {
+      "name": "SAYED IMAM",
       "score": 10
     },
     {
-      "name": "SHAIK MASEEHA",
-      "score": 10
-    },
-    {
-      "name": "KANTE AARTHI",
-      "score": 10
-    },
-    {
-      "name": "V.VARA PRASAD",
-      "score": 10
-    },
-    {
-      "name": "VAMSHI KRISHANA ",
-      "score": 9
-    },
-    {
-      "name": "BIBI HAJRA ",
-      "score": 9
-    },
-    {
-      "name": "NENAVATH SHIVANI",
-      "score": 9
-    },
-    {
-      "name": "D VIGNESH ",
+      "name": "AHMED",
       "score": 8
-    },
-    {
-      "name": "AKHIL ",
-      "score": 8
-    },
-    {
-      "name": "PAVANADHITHYA",
-      "score": 8
-    },
-    {
-      "name": "MURTHI SAIPRIYA REDDY ",
-      "score": 7
-    },
-    {
-      "name": "VENU",
-      "score": 7
-    },
-    {
-      "name": "SHIVA",
-      "score": 7
-    },
-    {
-      "name": "TABISH RAZA",
-      "score": 7
-    },
-    {
-      "name": "G GANESH",
-      "score": 7
-    },
-    {
-      "name": "P. HITHASREE ",
-      "score": 6
-    },
-    {
-      "name": "SHAIK MOHIUDDIN ",
-      "score": 6
-    },
-    {
-      "name": "VENKAT SAI REDDY",
-      "score": 6
     },
     {
       "name": "SHIREEN BEGUM",
       "score": 6
-    },
-    {
-      "name": "R. ADITHYA",
-      "score": 5
-    },
-    {
-      "name": "Y. GAMYASRI ",
-      "score": 5
-    },
-    {
-      "name": "NARRAMEGHANAREDDY",
-      "score": 5
-    },
-    {
-      "name": "KUSUMA",
-      "score": 4
     }
   ]
 }
